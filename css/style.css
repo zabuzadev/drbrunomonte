@@ -7,13 +7,14 @@
 
 body {
     font-family: 'poppins', sans-serif;
-    background-color: rgb(86,133,157);
-    background-image: url('../img/fundo_mobiledrbm.webp');
+    background-color: #025e7a;
+    background-image: url('../img/fundodrbm.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     height: 100vh;
+    overflow-x: hidden;
 }
 
 main{
@@ -23,11 +24,20 @@ main{
     margin: 0 6em;
     flex-direction: column;
     height: 100vh;
+    position: relative
 }
 
 main .assinatura{
     width: 17em;
     margin-top: 6em;
+}
+
+.imgAnimacao01{
+    display: none;
+}
+
+.imgAnimacao02{
+    display: none;
 }
 
 .copy{
@@ -114,6 +124,26 @@ footer{
         background-position: top;
     }
 
+    .imgAnimacao01{
+        position: absolute;
+        top: 26%;
+        left: 10%;
+        width: 20%;
+        rotate: 10deg;
+        animation: subir-rotacionar 4s infinite;
+        display: block;
+    }
+    
+    .imgAnimacao02{
+        position: absolute;
+        top: 30%;
+        right: 0;
+        width: 25%;
+        rotate: -10deg;
+        animation: subir-rotacionar2 6s infinite;
+        display: block;
+    }
+
     main .assinatura{
         width: 12em;
         filter: invert(1);
@@ -126,8 +156,20 @@ footer{
     }
 
     .copy{
+        background: rgba(255, 255, 255, 0.075);
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 4px );
+        -webkit-backdrop-filter: blur( 4px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        border-top: 4px solid #fff;
+        border-bottom: 4px solid #fff;
+
+        height: auto !important;
+        padding: 1em;
         width: 100%;
-        margin-top: 9em;
+        margin-top: 16em;
+
     }
 
     .title{
@@ -139,6 +181,7 @@ footer{
     }
 
     .button{
+        margin: 1em 0;
         width: 100%;
     }
 
@@ -147,14 +190,21 @@ footer{
     }
 
     footer{
-        margin-top: 2em;
+        margin-top: 13em;
 
         display: block;
     }
     
 }
 
+@media screen and (max-width: 550px) {
+    footer{
+        margin-top: 10em;
+    }
+}
+
 @media screen and (max-width: 425px){
+
     .title{
         font-size: 1.5em;
     }
@@ -173,6 +223,11 @@ footer{
         margin-top: 1em;
     }
 
+    .copy{
+        margin-top: 13em;
+        padding-bottom: 0;
+    }
+
     .detalhes .item{
         font-size: 0.8em;
     }
@@ -182,13 +237,38 @@ footer{
     }
 
     footer{
-        margin-top: 2em;
+        margin-top: 19em;
         font-size: 0.8em;
     }
     
 }
 
+@media screen and (max-width: 424px){
+    footer{
+        margin-top: 9em !important;
+        font-size: 0.8em;
+    }
+
+    .imgAnimacao01{
+        top: 16%;
+    }
+
+    .imgAnimacao02{
+        top: 16%;
+    }
+}
+
 @media screen and (max-width: 375px){
+
+    body{
+        background-attachment: fixed;
+        background-position: top;
+    }
+
+    footer{
+        margin-top: 5em !important;
+        font-size: 0.8em;
+    }
 
     .title{
         font-size: 1.2em;
@@ -202,6 +282,10 @@ footer{
         font-size: 14px;
     }
 
+    .copy{
+        margin-top: 12em;
+    }
+
     .detalhes .item{
         font-size: 0.8em;
     }
@@ -209,5 +293,36 @@ footer{
     .detalhes .item img{
         width: 0.8em;
     }
-    
+}
+
+
+/* animação subir e descer suave e rotacionar */
+@keyframes subir-rotacionar {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-30px) rotate(30deg);
+    }
+    75% {
+        transform: translateY(-30px) rotate(-30deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+@keyframes subir-rotacionar2 {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-30px) rotate(-23deg);
+    }
+    75% {
+        transform: translateY(-30px) rotate(20deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
 }
